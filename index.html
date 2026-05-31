@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DISTRICT TAEKWONDO ASSOCIATION SAMBHAL</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#000;
+  color:white;
+}
+
+/* LOADER */
+
+#loader{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:black;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:99999;
+}
+
+#loader h1{
+  color:gold;
+  text-align:center;
+  font-size:45px;
+  text-shadow:0 0 25px gold;
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.1);}
+  100%{transform:scale(1);}
+}
+
+/* HEADER */
+
+header{
+  background:linear-gradient(135deg,#000,#111,#222);
+  padding:80px 20px;
+  text-align:center;
+  border-bottom:3px solid gold;
+}
+
+header h1{
+  font-size:60px;
+  color:gold;
+  line-height:1.2;
+  text-shadow:0 0 20px rgba(255,215,0,0.5);
+}
+
+header p{
+  margin-top:20px;
+  font-size:20px;
+  color:#ddd;
+}
+
+/* NAVBAR */
+
+nav{
+  background:#111;
+  padding:15px;
+  text-align:center;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  border-bottom:1px solid gold;
+}
+
+nav a{
+  color:gold;
+  text-decoration:none;
+  margin:0 15px;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+nav a:hover{
+  color:white;
+}
+
+/* GENERAL */
+
+section{
+  padding:70px 20px;
+  max-width:1200px;
+  margin:auto;
+}
+
+.title{
+  text-align:center;
+  color:gold;
+  font-size:40px;
+  margin-bottom:40px;
+  text-shadow:0 0 20px gold;
+}
+
+.about{
+  text-align:center;
+  font-size:18px;
+  line-height:1.8;
+  color:#ddd;
+}
+
+/* CARDS */
+
+.committee{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:#111;
+  border:2px solid gold;
+  padding:30px;
+  border-radius:20px;
+  text-align:center;
+  transition:0.4s;
+  box-shadow:0 0 15px rgba(255,215,0,0.15);
+  transform-style:preserve-3d;
+}
+
+.card:hover{
+  transform:rotateY(8deg) rotateX(8deg) scale(1.05);
+  box-shadow:0 0 25px rgba(255,215,0,0.4);
+}
+
+.card h3{
+  color:gold;
+  margin-bottom:10px;
+  font-size:25px;
+}
+
+/* PROFILE */
+
+.profile-box{
+  display:none;
+  margin-top:20px;
+  background:#1a1a1a;
+  border:2px solid gold;
+  border-radius:20px;
+  padding:20px;
+  animation:fadeIn 0.4s ease;
+}
+
+.profile-content{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.profile-left{
+  flex:1;
+  text-align:left;
+  color:#ddd;
+  line-height:1.8;
+}
+
+.profile-left h2{
+  color:gold;
+  margin-bottom:10px;
+}
+
+.profile-right img{
+  width:180px;
+  height:180px;
+  object-fit:cover;
+  border-radius:20px;
+  border:3px solid gold;
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(-10px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* GALLERY */
+
+.slider{
+  position:relative;
+  overflow:hidden;
+}
+
+.slide{
+  display:none;
+  width:100%;
+  height:400px;
+  object-fit:cover;
+  border-radius:20px;
+  border:2px solid gold;
+  animation:fade 1s;
+}
+
+.slide.active{
+  display:block;
+}
+
+@keyframes fade{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+
+/* REGISTRATION */
+
+.registration{
+  background:#111;
+  border:2px solid gold;
+  border-radius:20px;
+  padding:40px;
+}
+
+.registration form{
+  display:grid;
+  gap:20px;
+}
+
+.registration input,
+.registration textarea{
+  padding:15px;
+  border-radius:10px;
+  border:none;
+  outline:none;
+  font-size:16px;
+}
+
+.registration button{
+  background:gold;
+  color:black;
+  padding:15px;
+  border:none;
+  border-radius:10px;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.registration button:hover{
+  background:white;
+}
+
+/* MEMBERS */
+
+.members{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:15px;
+}
+
+.member-box{
+  background:#111;
+  border:1px solid gold;
+  padding:15px;
+  border-radius:15px;
+  text-align:center;
+  transition:0.3s;
+}
+
+.member-box:hover{
+  background:gold;
+  color:black;
+  transform:scale(1.05);
+}
+
+/* BUTTONS */
+
+.btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:15px 30px;
+  background:gold;
+  color:black;
+  text-decoration:none;
+  border-radius:10px;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+.btn:hover{
+  background:white;
+}
+
+/* FOOTER */
+
+footer{
+  background:#111;
+  text-align:center;
+  padding:30px 20px;
+  border-top:2px solid gold;
+  color:#ccc;
+}
+
+/* WHATSAPP */
+
+.whatsapp-btn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:65px;
+  height:65px;
+  background:#25D366;
+  color:white;
+  font-size:30px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  text-decoration:none;
+  z-index:1000;
+  transition:0.3s;
+}
+
+.whatsapp-btn:hover{
+  transform:scale(1.1);
+}
+
+/* INSTAGRAM */
+
+.instagram-btn{
+  position:fixed;
+  bottom:95px;
+  right:20px;
+  width:65px;
+  height:65px;
+  background:linear-gradient(45deg,#feda75,#d62976,#962fbf);
+  color:white;
+  font-size:28px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  text-decoration:none;
+  z-index:1000;
+}
+
+.instagram-btn:hover{
+  transform:scale(1.1);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+header h1{
+  font-size:36px;
+}
+
+nav a{
+  display:inline-block;
+  margin:10px;
+}
+
+.profile-content{
+  flex-direction:column-reverse;
+  text-align:center;
+}
+
+.slide{
+  height:250px;
+}
+
+}
+
+</style>
+
+<script>
+
+function toggleProfile(card){
+
+document.querySelectorAll('.profile-box').forEach(box=>{
+if(box!==card.querySelector('.profile-box')){
+box.style.display='none';
+}
+});
+
+const profile=card.querySelector('.profile-box');
+
+if(profile.style.display==='block'){
+profile.style.display='none';
+}else{
+profile.style.display='block';
+}
+
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+
+document.querySelectorAll('.profile-box').forEach(profile=>{
+profile.addEventListener('click',function(event){
+event.stopPropagation();
+});
+});
+
+});
+
+/* LOADER */
+
+window.addEventListener("load",function(){
+document.getElementById("loader").style.display="none";
+});
+
+/* GALLERY */
+
+let current=0;
+
+setInterval(()=>{
+
+let slides=document.querySelectorAll(".slide");
+
+slides[current].classList.remove("active");
+
+current=(current+1)%slides.length;
+
+slides[current].classList.add("active");
+
+},3000);
+
+</script>
+
+</head>
+
+<body>
+
+<!-- LOADER -->
+
+<div id="loader" style="display: none;">
+<h1>DISTRICT TAEKWONDO<br>ASSOCIATION SAMBHAL</h1>
+</div>
+
+<header>
+
+<h1>DISTRICT TAEKWONDO<br>ASSOCIATION SAMBHAL</h1>
+
+<p>Discipline • Respect • Excellence</p>
+
+<a href="#register" class="btn">Join Now</a>
+
+</header>
+
+<nav>
+
+<a href="#about">About</a>
+<a href="#committee">Committee</a>
+<a href="#gallery">Gallery</a>
+<a href="#register">Registration</a>
+<a href="#members">Members</a>
+<a href="#contact">Contact</a>
+
+</nav>
+
+<section id="about">
+
+<h2 class="title">About Us</h2>
+
+<div class="about">
+
+DISTRICT TAEKWONDO ASSOCIATION SAMBHAL is dedicated to building strong athletes, disciplined students, and confident champions through professional Taekwondo training.
+
+<br><br>
+
+हमारा उद्देश्य युवाओं को फिटनेस, आत्मविश्वास और अनुशासन के माध्यम से बेहतर भविष्य की ओर प्रेरित करना है।
+
+</div>
+
+</section>
+
+<section id="committee">
+
+<h2 class="title">EXECUTIVE COMMITTEE</h2>
+
+<div class="committee">
+
+<div class="card" onclick="toggleProfile(this)">
+
+<h3>Md Taj Sir</h3>
+<p>President</p>
+
+<div class="profile-box" style="display: none;">
+
+<div class="profile-content">
+
+<div class="profile-left">
+
+<h2>Md Taj Sir</h2>
+
+<p><strong>Position:</strong> President</p>
+
+<p><strong>Belt:</strong> Black Belt 4th Dan</p>
+
+<p><strong>Experience:</strong> 20 Years</p>
+
+<p><strong>Tournaments Won:</strong> 52+</p>
+
+<p><strong>Achievements:</strong> State Champion, National Participant, Professional Coach,international player from south korea(hammadang 2013)</p>
+
+</div>
+
+<div class="profile-right">
+
+<img src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\picture\tajwar sir.jpeg">
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="card" onclick="toggleProfile(this)">
+
+<h3>Kashish Qasim</h3>
+<p>Vice President</p>
+
+<div class="profile-box" style="display: none;">
+
+<div class="profile-content">
+
+<div class="profile-left">
+
+<h2>Kashish Qasim</h2>
+
+<p><strong>Position:</strong> Vice President</p>
+
+<p><strong>Belt:</strong>Red belt</p>
+
+<p><strong>Experience:</strong> 2 Years</p>
+
+<p><strong>Tournaments Won:</strong> 4+ (1-state champion,3-district champion)</p>
+
+</div>
+
+<div class="profile-right">
+
+<img src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\picture\kashish.jpeg">
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="card" onclick="toggleProfile(this)">
+
+<h3>Hasan Nawab</h3>
+<p>Secretary</p>
+
+<div class="profile-box" style="display: none;">
+
+<div class="profile-content">
+
+<div class="profile-left">
+
+<h2>Hasan Nawab</h2>
+
+<p><strong>Position:</strong> Secretary</p>
+
+<p><strong>Belt:</strong>Red belt</p>
+
+<p><strong>Experience:</strong> 3 Years</p>
+
+<p><strong>Achievements:</strong>senior secretary of DTAS,state chapion , district champion</p>
+
+</div>
+
+<div class="profile-right">
+
+<img src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\picture\hasan.jpeg">
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="card" onclick="toggleProfile(this)">
+
+<h3>Harshit</h3>
+<p>Junior secretary</p>
+
+<div class="profile-box" style="display: none;">
+
+<div class="profile-content">
+
+<div class="profile-left">
+
+<h2>Harshit</h2>
+
+<p><strong>Position:</strong>Junior Secretary</p>
+
+<p><strong>Belt:</strong>Blue belt</p>
+
+<p><strong>Experience:</strong> 1 Years</p>
+
+<p><strong>Achievements:</strong>junior secretary (DTAS) </p>
+
+</div>
+
+<div class="profile-right">
+
+<img src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\picture\harshit.jpeg">
+
+</div>
+
+</div>
+
+</div>
+
+</div></div>
+
+</section>
+
+<section id="committee">
+
+<h2 class="title">SENIORS</h2>
+
+<div class="committee">
+
+<div class="card" onclick="toggleProfile(this)">
+
+<h3>Sumama</h3>
+<p>Head coach</p>
+
+<div class="profile-box" style="display: none;">
+
+<div class="profile-content">
+
+<div class="profile-left">
+
+<h2>Sumama</h2>
+
+<p><strong>Position:</strong>head coach (flying zone accademy)</p>
+
+<p><strong>Belt:</strong> Black Belt  </p>
+
+<p><strong>Experience:</strong>2years</p>
+
+<p><strong>Tournaments Won:</strong>3+</p>
+
+<p><strong>Achievements:</strong> State Champion, District Champion</p>
+
+</div>
+
+<div class="profile-right">
+
+<img src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\picture\sumama.jpeg">
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="card" onclick="toggleProfile(this)">
+
+<h3>Misba</h3>
+<p>Girls coach</p>
+
+<div class="profile-box" style="display: none;">
+
+<div class="profile-content">
+
+<div class="profile-left">
+
+<h2>Misba</h2>
+
+<p><strong>Position:</strong> Girls Coach</p>
+
+<p><strong>Belt:</strong> blue Belt </p>
+
+<p><strong>Experience:</strong> 2 Years</p>
+
+
+
+</div>
+
+<div class="profile-right">
+
+<img src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\picture\misba.jpeg">
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="card" onclick="toggleProfile(this)">
+
+<h3>Ayesha</h3>
+<p>Girls coach Assistent</p>
+
+<div class="profile-box" style="display: none;">
+
+<div class="profile-content">
+
+<div class="profile-left">
+
+<h2>Misba Ayesha</h2>
+
+<p><strong>Position:</strong> Girls Coach Assistent</p>
+
+<p><strong>Belt:</strong> blue belt 1st </p>
+
+<p><strong>Experience:</strong> 1 Years</p>
+
+
+
+</div>
+
+<div class="profile-right">
+
+<img src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\picture\ayesha.jpeg">
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="card" onclick="toggleProfile(this)">
+
+<h3>Ammar ul islam</h3>
+<p>poomsae coach </p>
+
+<div class="profile-box" style="display: none;">
+
+<div class="profile-content">
+
+<div class="profile-left">
+
+<h2>Ammar ul islam</h2>
+
+<p><strong>Position:</strong>Poomsae Coach</p>
+
+<p><strong>Belt:</strong> Black Belt 1st</p>
+
+<p><strong>Experience:</strong> 2 Years</p>
+
+<p><strong>Achievements:</strong>2-state Champion,3-District Champion</p>
+
+</div>
+
+<div class="profile-right">
+
+<img src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\picture\ammar.jpeg">
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section><section id="gallery">
+
+<h2 class="title">Tournament &amp; Training Gallery</h2>
+
+<div class="slider">
+
+<img class="slide " src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\1.jpg">
+<img class="slide " src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\2.jpg">
+<img class="slide " src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\3.jpg">
+<img class="slide " src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\4.jpg">
+<img class="slide " src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\5.jpg">
+<img class="slide " src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\6.jpg">
+<img class="slide " src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\7.jpg">
+<img class="slide " src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\8.jpg">
+<img class="slide " src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\9.jpg">
+<img class="slide " src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\10.jpg">
+<img class="slide " src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\11.jpg">
+<img class="slide " src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\12.jpg">
+<img class="slide " src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\13.jpg">
+<img class="slide " src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\14.jpg">
+<img class="slide " src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\15.jpg">
+<img class="slide " src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\16.jpg">
+<img class="slide " src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\17.jpg">
+<img class="slide " src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\18.jpeg">
+<img class="slide " src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\19.jpeg">
+<img class="slide " src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\20.jpeg">
+<img class="slide " src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\21.jpeg">
+<img class="slide " src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\22.jpeg">
+<img class="slide " src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\23.jpeg">
+<img class="slide " src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\24.jpeg">
+<img class="slide " src="F:\district taekwondo assosiation Sambhal\uploading material\gallery\25.jpeg">
+</div>
+
+</section>
+
+<section id="register">
+
+<h2 class="title">Student Registration</h2>
+
+<div class="registration">
+
+  <form action="https://formsubmit.co/districttaikwondosambhal@gmail.com" method="POST">
+
+<input type="text" name="Student Name" placeholder="Student Name" required="">
+
+<input type="number" name="Age" placeholder="Age" required="">
+
+<input type="text" name="Phone Number" placeholder="Phone Number" required="">
+
+<textarea name="Address" rows="5" placeholder="Address"></textarea>
+
+<!-- Spam Protection -->
+<input type="hidden" name="_captcha" value="false">
+
+<button type="submit">Submit Registration</button>
+
+</form>
+
+</div>
+
+</section>
+
+<section id="members">
+
+<h2 class="title">Junior Members</h2>
+
+<div class="members">
+
+<div class="member-box">Kartik</div>
+      <div class="member-box">Shabbu</div>
+      <div class="member-box">Affan</div>
+      <div class="member-box">Zohan</div>
+      <div class="member-box">Sarthak</div>
+      <div class="member-box">Ibraheem</div>
+      <div class="member-box">Fatima</div>
+      <div class="member-box">Minzar</div>
+      <div class="member-box">Sami</div>
+      <div class="member-box">Pulkit</div>
+      <div class="member-box">Humaira</div>
+      <div class="member-box">Nelum</div>
+      <div class="member-box">Misba</div>
+      <div class="member-box">Fahad</div>
+      <div class="member-box">Bilal</div>
+      <div class="member-box">Shayan</div>
+      <div class="member-box">Shan</div>
+      <div class="member-box">Fardeen</div>
+      <div class="member-box">Aqifa</div>
+      <div class="member-box">Arqam</div>
+      <div class="member-box">Aban</div>
+      <div class="member-box">Ali</div>
+
+</div>
+
+</section>
+
+<section id="achievements">
+
+<h2 class="title">Achievements</h2>
+
+<div class="committee">
+
+<div class="card">
+<h3>150+</h3>
+<p>Gold Medals</p>
+</div>
+
+<div class="card">
+<h3>200+</h3>
+<p>State Participants</p>
+</div>
+
+<div class="card">
+<h3>100+</h3>
+<p>Championships</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="belts">
+
+<h2 class="title">Belt Ranking System</h2>
+
+<div class="members">
+
+<div class="member-box">White Belt</div>
+<div class="member-box">Yellow Belt</div>
+<div class="member-box">Green Belt</div>
+<div class="member-box">Blue Belt</div>
+<div class="member-box">Red Belt</div>
+<div class="member-box">Black Belt</div>
+
+</div>
+
+</section>
+
+<section id="tournaments">
+
+<h2 class="title">Upcoming Tournaments</h2>
+
+<div class="committee">
+
+<div class="card">
+<h3>District Championship</h3>
+<p>Date: 20 June 2026</p>
+</div>
+
+<div class="card">
+<h3>State Taekwondo Cup</h3>
+<p>Date: 15 July 2026</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="certificates">
+
+<h2 class="title">Certificates &amp; Achievements</h2>
+
+<div class="committee">
+
+<div class="card">
+<h3>Gold Medalist</h3>
+<p>State Taekwondo Championship</p>
+</div>
+
+<div class="card">
+<h3>National Player</h3>
+<p>Professional Participation</p>
+</div>
+
+<div class="card">
+<h3>Black Belt Certified</h3>
+<p>Official Martial Arts Recognition</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2 class="title">Contact Us</h2>
+
+<div class="about">
+
+📍 Sambhal, Uttar Pradesh, India
+
+<br><br>
+
+📞 +91 9376878909
+
+<br><br>
+
+📧 districttaikwondosambhal@gmail.com
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">Location</h2>
+
+<iframe src="https://maps.google.com/maps?q=Sambhal%20Uttar%20Pradesh&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" width="100%" height="400" style="border:0; border-radius:20px;" allowfullscreen="" loading="lazy">
+</iframe>
+
+</section>
+
+<footer>
+
+© 2026 DISTRICT TAEKWONDO ASSOCIATION SAMBHAL
+
+<br><br>
+
+Discipline • Respect • Excellence
+
+</footer>
+
+<!-- BUTTONS -->
+
+<a href="https://wa.me/9376878909" class="whatsapp-btn">💬</a>
+
+<a href="https://www.instagram.com/flyingzoneofficial?igsh=bGg5eTByaW9xc2p5" class="instagram-btn">📸</a>
+
+
+</body></html>
